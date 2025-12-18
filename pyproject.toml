@@ -1,0 +1,82 @@
+[project]
+name = "advent-of-code"
+version = "0.1.0"
+description = ""
+readme = "README.md"
+requires-python = "==3.14.*"
+
+[dependency-groups]
+dev = [
+    "ruff>=0.14.9",
+]
+
+# dependencies = [
+#     "bleak>=1.0.1",
+#     "colorama>=0.4.6",
+#     "matplotlib>=3.10.3",
+#     "numpy>=2.3.1",
+#     "opuslib>=3.0.1",
+#     "pandas>=2.3.1",
+#     "pyqtgraph>=0.13.7",
+#     "pyside6==6.9.0",
+#     "rich>=14.0.0",
+#     "scipy>=1.16.0",
+#     "soundfile>=0.13.1",
+#     "structlog>=25.5.0",
+#     "tqdm>=4.67.1",
+# ]
+
+# [dependency-groups]
+# dev = [
+#     "pre-commit>=4.5.0",
+#     "pyinstaller>=6.14.2",
+#     "pyperclip>=1.11.0",
+#     "pytest>=8.4.1",
+#     "pytest-asyncio>=1.1.0",
+#     "pytest-cov>=6.2.1",
+#     "pytest-html>=4.1.1",
+#     "pytest-qt>=4.5.0",
+#     "pytest-xdist>=3.8.0",
+#     "ruff>=0.12.5",
+#     "scipy-stubs>=1.16.1.0",
+# ]
+
+[tool.ruff]
+exclude = [
+    ".git",
+    ".venv",
+    "__init__.py",
+]
+target-version = "py314"
+line-length = 88
+
+[tool.ruff.lint]
+fixable = ["ALL"]
+ignore = [
+    "TD002",  # missing-todo-author
+    "TD003",  # missing-todo-link
+    "ANN003", # missing-type-kwargs
+    "D203",   # one-blank-line-before-class
+    "D212",   # multi-line-summary-first-line
+    "INP001",
+    "T201",
+    "PLR2004",
+    "D103",
+    "S101"
+    
+]
+select = ["ALL"]
+unfixable = []
+
+
+[tool.ruff.lint.mccabe]
+# Flake8 is 15 - which I feel is too high
+max-complexity = 15
+
+[tool.pyright]
+# To get correct imports
+include = ["src", "tests", "scripts"]
+extraPaths = []
+
+[tool.ruff.lint.pydocstyle]
+ignore-decorators = ["override"]
